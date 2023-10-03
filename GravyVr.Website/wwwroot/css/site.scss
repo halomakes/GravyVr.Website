@@ -1,0 +1,94 @@
+@import "./reset";
+@import "./variables";
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1024px;
+    padding-left: $container-margin;
+    padding-right: $container-margin;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: $nav-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(17, 49, 59);
+    background: linear-gradient(0deg, rgba(17, 49, 59, 0.7951974735206583) 0%, rgba(15, 44, 81, 0.44505741749824934) 100%);
+
+    &>.navbar-content {
+        display: flex;
+        flex-direction: row;
+
+        &>* {
+            padding: 12px;
+            color: $white !important;
+            height: $nav-height;
+            line-height: 22px;
+        }
+
+        a {
+            &.active {
+                background-color: $white;
+                color: $blue !important;
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none !important;
+}
+
+b {
+    font-weight: bold;
+}
+
+.hero-block {
+    padding-top: $nav-height;
+    min-height: 640px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: 100;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.fullscreen-block {
+    min-height: 100vh;
+}
+
+.button {
+    padding: 12px 8px;
+    margin: 8px;
+    border: $white 1px solid;
+    color: white;
+    text-decoration: none;
+    transition: background-color .2s ease;
+
+    &:hover {
+        background-color: transparentize($color: $white, $amount: .9);
+    }
+}

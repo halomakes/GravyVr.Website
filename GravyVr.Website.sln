@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravyVr.Website", "GravyVr.Website\GravyVr.Website.csproj", "{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravyVr.Website.OfflineRenderer", "GravyVr.Website.OfflineRenderer\GravyVr.Website.OfflineRenderer.csproj", "{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B23F3EC-03AA-4521-9CB1-A38BE6F056B7}
+	EndGlobalSection
+EndGlobal
