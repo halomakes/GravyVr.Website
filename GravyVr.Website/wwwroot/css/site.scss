@@ -1,7 +1,9 @@
 @import "./reset";
 @import "./variables";
+@import "./countdown-timer";
+@import "./button";
 
-* {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -25,6 +27,7 @@ nav {
     align-items: center;
     background: rgb(17, 49, 59);
     background: linear-gradient(0deg, rgba(17, 49, 59, 0.7951974735206583) 0%, rgba(15, 44, 81, 0.44505741749824934) 100%);
+    backdrop-filter: blur(6px);
 
     &>.navbar-content {
         display: flex;
@@ -78,17 +81,4 @@ p {
 
 .fullscreen-block {
     min-height: 100vh;
-}
-
-.button {
-    padding: 12px 8px;
-    margin: 8px;
-    border: $white 1px solid;
-    color: white;
-    text-decoration: none;
-    transition: background-color .2s ease;
-
-    &:hover {
-        background-color: transparentize($color: $white, $amount: .9);
-    }
 }

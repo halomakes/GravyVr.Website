@@ -1,8 +1,10 @@
 ﻿@page "/Installation"
+@using GravyVr.Website.Pages.Components;
 @model GravyVr.Website.Pages.Venues.InstallationModel
 @{
     ViewBag.Title = "Installation";
     ViewBag.Section = "Venues";
+    var timerId = "UpcomingEvents";
 }
 @section Head{
     <link rel="stylesheet" href="~/css/installation.scss" asp-append-version="true" />
@@ -10,9 +12,16 @@
 
 <div class="hero-block fullscreen-block" style="background-image:url('/images/installation.jpg')">
     <h1>installation</h1>
-    <p>Subtitle goes here lol</p>
+    @(await Html.RenderComponentAsync<CountdownTimer>(RenderMode.Static, new { DataId = timerId, Label = "Next event:" }))
     <a href="https://vrchat.com/home/launch?worldId=wrld_346038e5-a7a8-401d-b43b-5bfd8ea18a4c" target="_blank"
         class="button">Launch World</a>
 </div>
 
-<script type="appli"></script>
+@section Data{
+    <script id="@timerId" type="application/json">
+    [{
+        "name": "One-Off Event",
+        "date": "2023-10-27T20:00:00.000Z"
+    }]
+    </script>
+}

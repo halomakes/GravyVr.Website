@@ -1,0 +1,26 @@
+﻿@namespace GravyVr.Website.Pages.Components
+<countdown-timer data-id='@DataId'>
+    <div class="label">@Label</div>
+    <div class="event-name"></div>
+    <div class="timer">
+        <span class="digit"></span>
+        <span class="digit"></span>
+        <span class="divider"></span>
+        <span class="digit"></span>
+        <span class="digit"></span>
+        <span class="divider"></span>
+        <span class="digit"></span>
+        <span class="digit"></span>
+        <span class="divider"></span>
+        <span class="digit"></span>
+        <span class="digit"></span>
+    </div>
+</countdown-timer>
+
+@code {
+    [Parameter]
+    public string? DataId { get; set; }
+
+    [Parameter]
+    public required string Label { get; set; }
+}
