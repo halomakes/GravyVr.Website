@@ -14,8 +14,8 @@
         <nav>
             <div class="container navbar-content">
                 <b>GravyVR</b>
-                <a class="@(ViewBag.Section == "Venues" ? "active" : "")" asp-area="" asp-page="Venues">Venues</a>
-                <a asp-area="" asp-page="Venues">Tooling</a>
+                <a href="/Venues" class="@(ViewBag.Section == "Venues" ? "active" : "")">Venues</a>
+                <a href="/Tooling" class="@(ViewBag.Section == "Tooling" ? "active" : "")">Tooling</a>
             </div>
         </nav>
     </header>

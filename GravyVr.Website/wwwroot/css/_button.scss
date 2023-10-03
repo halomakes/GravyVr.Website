@@ -5,6 +5,7 @@
     color: white;
     text-decoration: none;
     transition: background-color .2s ease;
+    border-radius: 6px;
 
     &:hover {
         background-color: transparentize($color: $white, $amount: .9);

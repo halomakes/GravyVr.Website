@@ -5,6 +5,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: $light-grey;
 }
 
 .container {
@@ -81,4 +82,179 @@ p {
 
 .fullscreen-block {
     min-height: 100vh;
+}
+
+.nav-push {
+    padding-top: $nav-height;
+}
+
+.content {
+    padding: 12px;
+}
+
+.content.nav-push {
+    padding-top: 12px + $nav-height;
+}
+
+.bar-head {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    &>h2 {
+        align-self: center;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 3px;
+        font-size: 18px;
+        color: $blue;
+        margin-top: 24px;
+        margin-bottom: 12px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 500vw;
+            background-color: $blue;
+            left: -50vw;
+            top: 50%;
+            z-index: -2;
+        }
+
+        &::after {
+            $pad: 12px;
+            content: '';
+            height: 100%;
+            width: calc(100% + #{$pad * 2});
+            left: #{-1 * $pad};
+            position: absolute;
+            background-color: $light-grey;
+            z-index: -1;
+        }
+    }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.banner-list {
+    &>li {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        &>a {
+            background-blend-mode: luminosity;
+            background-size: cover;
+            background-position: center;
+            border-radius: 6px;
+            position: relative;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px;
+            justify-content: center;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                background-color: transparentize($color: $black, $amount: .3);
+                border-radius: 6px;
+                z-index: 1;
+                transition: all .2s ease;
+            }
+
+            &>* {
+                position: relative;
+                z-index: 2;
+                color: $white !important;
+                transition: transform .2s ease;
+            }
+
+            &>h2 {
+                font-weight: 300;
+                font-size: 42px;
+                margin-bottom: 8px;
+            }
+
+            &>p {
+                margin: 0;
+                font-size: 18px;
+            }
+
+            &:hover {
+                &::before {
+                    backdrop-filter: blur(4px);
+                    background-color: transparentize($color: $black, $amount: .2);
+                }
+
+                &>* {
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+}
+
+ul.tile-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    $image-size: 240px;
+    gap: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    &>li>a {
+        display: grid;
+        grid-template-rows: $image-size auto auto;
+        background-color: $white;
+        border-radius: 6px;
+        padding: 12px;
+        gap: 6px;
+        height: 100%;
+
+        &>* {
+            justify-self: center;
+            text-align: center;
+            color: $blue;
+        }
+
+        &>img {
+            grid-row: 1/2;
+            width: $image-size;
+            height: $image-size;
+            object-fit: contain;
+        }
+
+        &>h3 {
+            grid-row: 2/3;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        &>p {
+            grid-row: 3/4;
+        }
+    }
+
+    @media screen and (max-width: 860px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 560px) {
+        grid-template-columns: 1fr;
+    }
 }
