@@ -28,7 +28,8 @@ nav {
     align-items: center;
     background: rgb(17, 49, 59);
     background: linear-gradient(0deg, rgba(17, 49, 59, 0.7951974735206583) 0%, rgba(15, 44, 81, 0.44505741749824934) 100%);
-    backdrop-filter: blur(6px);
+    @include blur();
+    z-index: 100;
 
     &>.navbar-content {
         display: flex;
@@ -163,16 +164,10 @@ ul.banner-list {
             justify-content: center;
 
             &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                @include overlay-pseudo();
                 backdrop-filter: blur(2px);
                 background-color: transparentize($color: $black, $amount: .3);
-                border-radius: 6px;
+                @include rounded();
                 z-index: 1;
                 transition: all .2s ease;
             }
@@ -256,5 +251,25 @@ ul.tile-list {
 
     @media screen and (max-width: 560px) {
         grid-template-columns: 1fr;
+    }
+}
+
+.video-background {
+    position: relative;
+
+    &>video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+
+    &::after {
+        @include overlay-pseudo();
+        background: radial-gradient(circle, transparentize($black, .3) 0%, transparentize($black, .9) 100%);
+        z-index: -1;
     }
 }

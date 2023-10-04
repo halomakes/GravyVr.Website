@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 countdown-timer {
     display: flex;
@@ -29,7 +30,7 @@ countdown-timer {
         &>.digit {
             background-color: transparentize($color: $blue, $amount: .2);
             width: 32px;
-            border-radius: 4px;
+            @include rounded();
         }
 
         &>.divider {

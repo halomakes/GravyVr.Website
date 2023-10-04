@@ -1,14 +1,17 @@
+@import "./variables";
+@import './mixins';
+
 .button {
-    padding: 12px 8px;
+    padding: 12px 16px;
     margin: 8px;
     border: $white 1px solid;
     color: white;
     text-decoration: none;
     transition: background-color .2s ease;
-    border-radius: 6px;
+    @include rounded();
+    @include blur();
 
     &:hover {
         background-color: transparentize($color: $white, $amount: .9);
     }
 }
-

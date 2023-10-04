@@ -10,18 +10,21 @@
     <link rel="stylesheet" href="~/css/installation.css" asp-append-version="true" />
 }
 
-<div class="hero-block fullscreen-block" style="background-image:url('/images/installation.jpg')">
+<div class="hero-block fullscreen-block video-background">
     <h1>installation</h1>
-    @(await Html.RenderComponentAsync<CountdownTimer>(RenderMode.Static, new { DataId = timerId, Label = "Next event:" }))
+    @(await Html.RenderComponentAsync<CountdownTimer>(RenderMode.Static, new { DataId = timerId, Label = "Next up:" }))
     <a href="https://vrchat.com/home/launch?worldId=wrld_346038e5-a7a8-401d-b43b-5bfd8ea18a4c" target="_blank"
         class="button">Launch World</a>
+    <video autoplay loop muted poster="/images/installation.jpg">
+        <source src="/videos/installation-background.mp4" type="video/mp4" />
+    </video>
 </div>
 
 @section Data{
     <script id="@timerId" type="application/json">
     [{
         "name": "One-Off Event",
-        "date": "2023-10-27T20:00:00.000Z"
+        "date": "2023-10-28T00:00:00.000Z"
     }]
     </script>
 }

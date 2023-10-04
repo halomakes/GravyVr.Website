@@ -14,7 +14,8 @@ public partial class Program
             "images/icon-summoner.png",
             "images/installation.jpg",
             "js/app.js",
-            "favicon.ico"
+            "favicon.ico",
+            "videos/installation-background.mp4"
         };
         var pages = new string[]
         {
