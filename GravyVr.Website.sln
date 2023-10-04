@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravyVr.Website", "GravyVr.Website\GravyVr.Website.csproj", "{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GravyVr.Website", "GravyVr.Website\GravyVr.Website.csproj", "{43BE090A-9CCE-463F-B176-6ECFE8B1CB9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravyVr.Website.OfflineRenderer", "GravyVr.Website.OfflineRenderer\GravyVr.Website.OfflineRenderer.csproj", "{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GravyVr.Website.OfflineRenderer", "GravyVr.Website.OfflineRenderer\GravyVr.Website.OfflineRenderer.csproj", "{6ACC74DE-2D7C-4DCC-9900-6740D68E1B7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

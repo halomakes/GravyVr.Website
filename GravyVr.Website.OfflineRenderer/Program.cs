@@ -21,7 +21,8 @@ public partial class Program
             "",
             "Venues",
             "Installation",
-            "Tooling"
+            "Tooling",
+            "404"
         };
 
         var factory = new WebApplicationFactory<GravyVr.Website.Program>();
@@ -31,6 +32,7 @@ public partial class Program
             await StoreResource(client, resource, resource);
         foreach (var page in pages)
             await StoreResource(client, page, string.IsNullOrEmpty(page) ? "index.html" : $"{page}/index.html");
+        await StoreResource(client, "404", "404.html");
     }
 
     private static async Task StoreResource(HttpClient client, string fetchUrl, string filePath)

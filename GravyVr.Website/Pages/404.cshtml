@@ -1,0 +1,15 @@
+﻿@page
+@model GravyVr.Website.Pages._404Model
+@{
+}
+<div class="container nav-push content">
+    <h1>Not Found</h1>
+    <p>Sorry, we couldn't find the page you're looking for.</p>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        // workaround case sensitivity on gh-pages
+        if (window.location.href != window.location.href.toLowerCase()) window.location.href = window.location.href.toLowerCase();
+    </script>
+}
