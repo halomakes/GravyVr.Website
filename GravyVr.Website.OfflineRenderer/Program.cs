@@ -37,15 +37,18 @@ public partial class Program
     {
         var content = await client.GetStreamAsync(fetchUrl);
         Console.WriteLine($"Storing content from {fetchUrl} to {filePath}");
-        await WriteFileAsync(filePath, content);
+        await using var memoryStream = new MemoryStream();
+        await content.CopyToAsync(memoryStream); // might need to read this multiple times
+        await WriteFileAsync(filePath, memoryStream);
         if (filePath.Any(char.IsUpper)) // workaround case-sensitive gh-pages hosting
-            await WriteFileAsync(filePath.ToLower(), content);
+            await WriteFileAsync(filePath.ToLower(), memoryStream);
     }
 
     private static async Task WriteFileAsync(string filePath, Stream content)
     {
         var fullPath = Path.Combine(RootDirectory.Value, OutputDirectory, filePath);
         EnsureDirectoryExists(fullPath);
+        content.Seek(default, SeekOrigin.Begin);
         var file = new FileStream(fullPath, FileMode.Create);
         await content.CopyToAsync(file);
         file.Close();
