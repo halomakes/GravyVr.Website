@@ -9,8 +9,8 @@ public class Program
     {
         var resources = new string[]
         {
-            "css/site.scss",
-            "css/installation.scss",
+            //"css/site.scss",
+            //"css/installation.scss",
             "images/icon-summoner.png",
             "images/installation.jpg",
             "js/app.js",
