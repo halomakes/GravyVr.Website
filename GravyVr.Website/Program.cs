@@ -1,34 +1,42 @@
 using JavaScriptEngineSwitcher.ChakraCore;
 using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace GravyVr.Website;
 
-// Add services to the container.
-builder.Services.AddRazorPages()
-    .AddRazorRuntimeCompilation();
-builder.Services
-    .AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName)
-    .AddChakraCore();
-
-builder.Services.AddWebOptimizer(pipeline =>
+public class Program
 {
-    pipeline.CompileScssFiles();
-});
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        // Add services to the container.
+        builder.Services.AddRazorPages()
+            .AddRazorRuntimeCompilation();
+        builder.Services
+            .AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName)
+            .AddChakraCore();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
+        builder.Services.AddWebOptimizer(pipeline =>
+        {
+            pipeline.CompileScssFiles();
+        });
+
+        var app = builder.Build();
+
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+        }
+        app.UseWebOptimizer();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.MapRazorPages();
+
+        app.Run();
+    }
 }
-app.UseWebOptimizer();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();

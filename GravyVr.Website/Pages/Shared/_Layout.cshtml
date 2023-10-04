@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GravyVR</title>
-    <link rel="stylesheet" href="~/css/site.scss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.scss" type="text/css" asp-append-version="true" />
     @await RenderSectionAsync("Head", required: false)
 </head>
 
@@ -24,7 +24,6 @@
     </main>
 
     @await RenderSectionAsync("Data", required: false)
-    <script type="text/javascript" src="~/lib/gravy-bind/dist.browser/index.js"></script>
     <script type="text/javascript" src="~/js/app.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
