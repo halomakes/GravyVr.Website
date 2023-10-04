@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 
-public class Program
+public partial class Program
 {
     private static readonly Lazy<string> RootDirectory = new(() => AppDomain.CurrentDomain.BaseDirectory);
     private const string OutputDirectory = "wwwroot";
@@ -37,10 +37,18 @@ public class Program
     {
         var content = await client.GetStreamAsync(fetchUrl);
         Console.WriteLine($"Storing content from {fetchUrl} to {filePath}");
+        await WriteFileAsync(filePath, content);
+        if (filePath.Any(char.IsUpper)) // workaround case-sensitive gh-pages hosting
+            await WriteFileAsync(filePath.ToLower(), content);
+    }
+
+    private static async Task WriteFileAsync(string filePath, Stream content)
+    {
         var fullPath = Path.Combine(RootDirectory.Value, OutputDirectory, filePath);
         EnsureDirectoryExists(fullPath);
-        await using var file = new FileStream(fullPath, FileMode.Create);
+        var file = new FileStream(fullPath, FileMode.Create);
         await content.CopyToAsync(file);
+        file.Close();
     }
 
     private static void EnsureDirectoryExists(string path)
