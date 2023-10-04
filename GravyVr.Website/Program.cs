@@ -1,6 +1,3 @@
-using JavaScriptEngineSwitcher.ChakraCore;
-using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
-
 namespace GravyVr.Website;
 
 public class Program
@@ -12,14 +9,6 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages()
             .AddRazorRuntimeCompilation();
-        builder.Services
-            .AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName)
-            .AddChakraCore();
-
-        builder.Services.AddWebOptimizer(pipeline =>
-        {
-            pipeline.CompileScssFiles();
-        });
 
         var app = builder.Build();
 
@@ -28,7 +17,6 @@ public class Program
         {
             app.UseExceptionHandler("/Error");
         }
-        app.UseWebOptimizer();
         app.UseStaticFiles();
 
         app.UseRouting();
